@@ -4,6 +4,15 @@
 
 In side this branch of original maskrcnn-benmark, I am focus on exporting trained model to onnx, so that I can inference this onnx model with TensorRT or ONNXRuntime.
 
+**note**: this master branch does not support training and inference now! it's only used for exporting model to onnx!
+
+Currently supported:
+
+- [x] exporting model to fasterrcnn worked.
+- [ ] exporting model to maskrcnn not worked for now.
+
+
+
 ## Changelog
 
 **2019.09.11**: Just fix a bug of pytorch 1.3, the warning still exists. needs to supress the warning, the byte check has been changed from uint8 to bool inside pytorch1.3;
