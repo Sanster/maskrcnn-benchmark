@@ -1,0 +1,53 @@
+# compilation and distribution
+__pycache__
+_ext
+*.pyc
+*.so
+maskrcnn_benchmark.egg-info/
+build/
+dist/
+
+# pytorch/python/numpy formats
+*.pth
+*.pkl
+*.npy
+
+# ipython/jupyter notebooks
+*.ipynb
+**/.ipynb_checkpoints/
+
+# Editor temporaries
+*.swn
+*.swo
+*.swp
+*~
+
+# Pycharm editor settings
+.idea
+
+<<<<<<< HEAD
+# vscode editor settings
+.vscode
+
+=======
+>>>>>>> 060b24cdfa5fff2aaf423cd467d910738a885a85
+# MacOS
+.DS_Store
+
+# project dirs
+/datasets
+/models
+/output
+<<<<<<< HEAD
+weights/
+config.yml
+log.txt
+vendor/
+last_checkpoint
+weights/
+default_weights/
+=======
+>>>>>>> 060b24cdfa5fff2aaf423cd467d910738a885a85
+weights/
+build/
+maskrcnn_benchmark.egg-info/
