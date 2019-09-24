@@ -107,7 +107,7 @@ if __name__ == '__main__':
         model.eval()
         model.cuda()
 
-        torch.onnx.export(model, (image,), model_path, verbose=True, opset_version=10, strip_doc_string=True, do_constant_folding=True)
+        torch.onnx.export(model, (image,), model_path, verbose=False, opset_version=10, strip_doc_string=True, do_constant_folding=True)
 
         pytorch_export_patch.postprocess_model(model_path)
 
@@ -145,9 +145,11 @@ if __name__ == '__main__':
         import onnxruntime as rt
         sess = rt.InferenceSession(model_path)
         ort_out = sess.run(None, {sess.get_inputs()[0].name: image.numpy()})
-        # print('torch output:', out)
-        # print('ort output:', ort_out)
-        # print(image.shape)
+        print('torch output:', out)
+        print('ort output:', ort_out)
+        print(image.shape)
+        logging.info('onnx inputs: {}'.format([i.name for i in sess.get_inputs()]))
+        logging.info('onnx outputs: {}'.format([i.name for i in sess.get_outputs()]))
         times = []
         for _ in range(repetition):
             begin = timeit.time.perf_counter()
