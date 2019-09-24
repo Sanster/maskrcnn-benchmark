@@ -78,7 +78,6 @@ if __name__ == '__main__':
     image = torch.from_numpy(numpy.array(pil_image)[:, :, [2, 1, 0]])
     original_image = image
     image = torch.nn.functional.upsample(image.permute(2, 0, 1).unsqueeze(0).to(torch.float), size=(960, 1280)).to(torch.uint8).squeeze(0).permute(1, 2, 0).to(device)
-
     image = image.permute(2, 0, 1)
 
     if not cfg.INPUT.TO_BGR255:
@@ -93,7 +92,7 @@ if __name__ == '__main__':
 
     model_path = 'faster_rcnn_R_50_FPN_1x_exported.onnx'
     logging.info('model will be saved into: {}'.format(model_path))
-    logging.info('input: {}'.format(image))
+    logging.info('input: {}'.format(image.size()))
     with torch.no_grad():
         model = FRCNNModel()
         model.eval()

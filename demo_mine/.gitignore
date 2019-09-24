@@ -1,2 +1,3 @@
 faster_rcnn_R_50_FPN_1x.onnx
 faster_rcnn_R_50_FPN_1x_exported.onnx faster_rcnn_R_50_FPN_1x.onnx
+faster_rcnn_R_50_FPN_1x_exported.onnx
